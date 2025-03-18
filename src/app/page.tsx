@@ -21,6 +21,7 @@ export default function Home() {
   const [valid, setValid] = useState(false);
 
   const [totalVol, setTotalVol] = useState(0);
+  const [totalAlch, setTotalAlch] = useState(0);
   const [totalAbv, setTotalAbv] = useState(0);
 
   /**
@@ -56,6 +57,7 @@ export default function Home() {
     const calcAbv = Number(((calcAlc / calcVol) * 100).toFixed(2));
 
     setTotalVol(calcVol);
+    setTotalAlch(calcAlc);
     setTotalAbv(calcAbv || 0);
   }, [ingredients]);
 
@@ -169,6 +171,7 @@ export default function Home() {
           <h2 className="font-bold text-lg">Calculated</h2>
           <ul>
             <li>Total Vol: {totalVol}ml</li>
+            <li>Alcohol Vol: {totalAlch}ml</li>
             <li>Total ABV: {totalAbv}%</li>
           </ul>
         </div>
